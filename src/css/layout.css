@@ -1,0 +1,61 @@
+@font-face {
+  font-family: 'RobotoMono-Regular';
+  src: url('./RobotoMono-Regular.ttf')  format('truetype'); /* Safari, Android, iOS */
+}
+
+a:link {
+  color: #7a9668;
+}/* visited link */
+
+a:visited {
+  color: #7a9668;
+}
+
+/* mouse over link */
+a:hover {
+  color: #7a9668;
+}
+
+/* selected link */
+a:active {
+  color: #7a9668;
+}
+
+body {
+  background-color: #101824; 
+  color: #7a9668;
+  font-size: 15px;
+  font-family: 'RobotoMono-Regular', helvetica;
+}
+
+h1 {
+  font-size: 15px;
+  font-weight: bold;
+  font-family: 'RobotoMono-Regular', helvetica;
+}
+
+#navbar {
+  font-size: 15px;
+  font-weight: bold;
+  font-family: 'RobotoMono-Regular', helvetica;
+  color: #7a9668;
+  background-color: #101824; 
+  display: flex;
+  justify-content: center;
+  width: 800px;
+}
+
+#navbar ul {
+  list-style: none;
+  display: inline-flex;
+}
+
+#navbar li {
+  margin: 0 25% 0 25%;
+  text-decoration: underline;
+}
+
+#navbar-active-item {
+  text-decoration: overline;
+}
+
