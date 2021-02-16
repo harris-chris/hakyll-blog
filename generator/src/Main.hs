@@ -59,6 +59,9 @@ main = hakyllWith config $ do
   match "css/*" $ do
     route idRoute
     compile compressCssCompiler
+  match "fonts/*" $ do
+    route   idRoute
+    compile copyFileCompiler
   match "posts/*" $ do
     let ctx = constField "type" "article" <> postCtx
     route $ metadataRoute titleRoute
