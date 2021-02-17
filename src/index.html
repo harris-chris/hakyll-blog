@@ -6,27 +6,42 @@ stylesheet: "default"
 title: "Hello, world!"
 ---
 
-<header>
-  $partial("templates/nav.html")$
-  <h1>moar text</h1>
-  <h1>Abstract Nonsense</h1>
-  <link rel="stylesheet" href="./css/layout.css">
-  <img
-    alt="A woman sitting on a bench amongst trees at the end of a boardwalk leading to a pond with mountains in the background"
-    src="./images/robert-pearce-UwHN0jU_YqQ-unsplash-800w.jpg"
-    style="max-width:500px;"
-  />
-</header>
-<main>
-  <section>
-    <h2>Blog Posts yes</h2>
-    <ul>
-      $for(posts)$
-        <li>
-          <div><a href=".$url$">$title$</a></div>
-          <small>$date$</small>
-        </li>
-      $endfor$
-    </ul>
-  </section>
-</main>
+<div class = 'whole-page-wrapper'>
+  <header>
+    $partial("templates/nav.html")$
+    <h1>moar text</h1>
+    <h1>Abstract Nonsense</h1>
+    <link rel="stylesheet" href="./css/layout.css">
+    <img
+      alt="A woman sitting on a bench amongst trees at the end of a boardwalk leading to a pond with mountains in the background"
+      src="./images/robert-pearce-UwHN0jU_YqQ-unsplash-800w.jpg"
+      style="max-width:500px;"
+    />
+  </header>
+  <main>
+    <div class='row'>
+      <div class='column'>
+        <h2>Starting a blog</h2>
+        <ul>
+          $for(posts)$
+            <li>
+              <div><a href=".$url$">$title$</a></div>
+              <small>$date$</small>
+            </li>
+          $endfor$
+        </ul>
+      </div>
+      <div class='column'>
+        <h2>Blog Posts yes</h2>
+        <ul>
+          $for(posts)$
+            <li>
+              <div><a href=".$url$">$title$</a></div>
+              <small>$date$</small>
+            </li>
+          $endfor$
+        </ul>
+      </div>
+    </div>
+  </main>
+</div>
