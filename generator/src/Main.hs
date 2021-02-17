@@ -24,7 +24,7 @@ root =
 
 siteName :: String
 siteName =
-  "My Site Name"
+  "Abstract Nonsense"
 
 config :: Configuration
 config =
@@ -82,6 +82,32 @@ main = hakyllWith config $ do
       getResourceBody
         >>= applyAsTemplate indexCtx
         >>= loadAndApplyTemplate "templates/default.html" indexCtx
+  match "blog.html" $ do
+    route idRoute
+    compile $ do
+      posts <- recentFirst =<< loadAll "posts/*"
+      let indexCtx =
+            listField "posts" postCtx (return posts)
+              <> constField "root" root
+              <> constField "siteName" siteName
+              <> defaultContext
+      getResourceBody
+        >>= applyAsTemplate indexCtx
+        >>= loadAndApplyTemplate "templates/default.html" indexCtx
+  match "theauthor.html" $ do
+    route idRoute
+    compile $ do
+      let meCtx = defaultContext <> constField "siteName" siteName <> constField "root" root
+      getResourceBody
+        >>= applyAsTemplate meCtx
+        >>= loadAndApplyTemplate "templates/default.html" meCtx
+  match "hisworks.html" $ do
+    route idRoute
+    compile $ do
+      let meCtx = defaultContext <> constField "siteName" siteName <> constField "root" root
+      getResourceBody
+        >>= applyAsTemplate meCtx
+        >>= loadAndApplyTemplate "templates/default.html" meCtx
   match "templates/*" $
     compile templateBodyCompiler
   create ["sitemap.xml"] $ do

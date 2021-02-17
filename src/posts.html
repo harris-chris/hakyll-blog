@@ -1,0 +1,24 @@
+---
+desc: "A list of posts"
+lang: "en"
+title: "Posts"
+---
+
+<header>
+  $partial("templates/nav.html")$
+  <h1>Posts</h1>
+  <link rel="stylesheet" href="./css/layout.css">
+</header>
+<main>
+  <section>
+    <h2>Blog Posts</h2>
+    <ul>
+      $for(posts)$
+        <li>
+          <div><a href=".$url$">$title$</a></div>
+          <small>$date$</small>
+        </li>
+      $endfor$
+    </ul>
+  </section>
+</main>
