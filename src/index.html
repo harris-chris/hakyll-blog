@@ -1,61 +1,37 @@
 ---
-desc: "This is me saying hello to the world"
-image: "./images/robert-pearce-UwHN0jU_YqQ-unsplash-800w.jpg"
+desc: ""
 lang: "en"
-stylesheet: "default"
-title: "Hello, world!"
+title: "Just | Nothing"
 ---
 <link rel="stylesheet" href="./css/layout.css">
 <div class='page-wrapper'>
   <div class='row'>
-    <div class='column' id='navbar'>
+    <div class='nav-column'> 
       $partial("templates/nav.html")$
     </div>
   </div>
   <div class='row'>
     <div class='column'>
-      Some Text in Row 2, Column One
+      <h1> What is this doing here? </h1>
+      The final stage in the thought process is articulation, and I frequently have thoughts for which I have no suitable recipient. Rather than bothering my friends with these rambles, which are often more akin to delusional states brought on by caffeine than cohesive ideas, I have started this blog, so that they can forever stare back at me from cyberspace.
     </div>
     <div class='column'>
-      Some Text in Row 2, Column Two
+      <div class='posts-short-list'>
+        With that said, some recent emissions:
+        $for(posts)$
+          <li>
+            <div><a href=".$url$">$title$ - $date$</a></div>
+          </li>
+        $endfor$
+      </div>
     </div>
+  </div>
+  <div class='row'>
     <div class='column'>
-      Some Text in Row2, Column Three
+      This site uses a few technologies I like:
+      Hakyll - Haskell mostly-static-content webserver
+      Pandoc - for parsing the markdown
+      hosted on a NixOS Digitalocean droplet for $$5 per month
     </div>
   </div>
 </div>
-
-<!--<div class = 'whole-page-wrapper'>-->
-  <!--<div class='row'>-->
-    <!--<div class = 'column'>-->
-      <!--[>$partial("templates/nav.html")$<]-->
-      <!--TOP-->
-    <!--</div>-->
-  <!--</div>-->
-  <!--<div class='row'>-->
-    <!--<div class='column'>-->
-      <!--MIDDLE LEFT-->
-      <!--[><h2>Starting a blog</h2><]-->
-      <!--[><ul><]-->
-        <!--[>$for(posts)$<]-->
-          <!--[><li><]-->
-            <!--[><div><a href=".$url$">$title$</a></div><]-->
-            <!--[><small>$date$</small><]-->
-          <!--[></li><]-->
-        <!--[>$endfor$<]-->
-      <!--[></ul><]-->
-    <!--</div>-->
-    <!--<div class='column'>-->
-      <!--MIDDLE RIGHT-->
-      <!--[><h2>Blog Posts yes</h2><]-->
-      <!--[><ul><]-->
-        <!--[>$for(posts)$<]-->
-          <!--[><li><]-->
-            <!--[><div><a href=".$url$">$title$</a></div><]-->
-            <!--[><small>$date$</small><]-->
-          <!--[></li><]-->
-        <!--[>$endfor$<]-->
-      <!--[></ul><]-->
-    <!--</div>-->
-  <!--</div>-->
-<!--</div>-->

@@ -1,19 +1,24 @@
 @font-face {
   font-family: 'RobotoMono-Regular';
-  src: url('./fonts/RobotoMono-Regular.ttf')  format('truetype'); /* Safari, Android, iOS */
+  src: url('/fonts/RobotoMono-Regular.ttf')  format('truetype'); /* Safari, Android, iOS */
 }
 
+/*@font-face {*/
+  /*font-family: 'RobotoMono-Regular';*/
+  /*src: url('./fonts/RobotoMono-Regular.ttf')  format('truetype'); [> Safari, Android, iOS <]*/
+/*}*/
+
 a:link {
-  color: #7a9668;
+  color: blue;
 }/* visited link */
 
 a:visited {
-  color: #7a9668;
+  color: blue;
 }
 
 /* mouse over link */
 a:hover {
-  color: #7a9668;
+  color: blue;
 }
 
 /* selected link */
@@ -22,15 +27,13 @@ a:active {
 }
 
 body {
-  background-color: #101824;
-  /*background-color: red;*/
-  color: #7a9668;
-  font-family: 'RobotoMono-Regular', helvetica;
+  color: black;
+  font-family: 'RobotoMono-Regular';
   font-size: 15px;
 }
 
 .page-wrapper {
-  width: 800px;
+  max-width: 800px;
 }
 
 .row {
@@ -44,34 +47,61 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: lightgrey;
   justify-content: center;
   flex: 1;
+  border-left: 1px solid black; 
+  border-right: 1px solid black;
+  border-bottom: 1px solid black;
+  padding: 10px 7px 10px 7px;
+}
+
+.nav-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: lightgrey;
+  justify-content: center;
+  flex: 1;
+  border: 1px solid black;
+}
+
+.posts-short-list {
+  margin: 0;
+  padding: 0;
+}
+
+.posts-short-list li {
+  margin: 0;
+  padding: 0;
 }
 
 h1 {
   font-size: 15px;
-  font-weight: bold;
+  font-weight: normal;
   font-family: 'RobotoMono-Regular', helvetica;
+  color: red;
+  text-transform: uppercase;
 }
 
 h2 {
   font-size: 15px;
-  font-weight: regular;
+  font-weight: normal;
   font-family: 'RobotoMono-Regular', helvetica;
 }
 
 #navbar {
-  color: #7a9668;
-  background-color: #101824; 
   display: flex;
 }
 
 #navbar ul {
   list-style: none;
+  padding-right: 20px;
+  color: blue;
 }
 
 #navbar li {
-  margin: 0px 10px 10px 10px;
+  margin: 10px 10px 10px 10px;
   text-decoration: underline;
   white-space: nowrap;
   display: inline;
