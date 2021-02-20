@@ -82,7 +82,7 @@ main = hakyllWith config $ do
       getResourceBody
         >>= applyAsTemplate indexCtx
         >>= loadAndApplyTemplate "templates/default.html" indexCtx
-  match "blog.html" $ do
+  match "thoughts.html" $ do
     route idRoute
     compile $ do
       posts <- recentFirst =<< loadAll "posts/*"
@@ -94,14 +94,14 @@ main = hakyllWith config $ do
       getResourceBody
         >>= applyAsTemplate indexCtx
         >>= loadAndApplyTemplate "templates/default.html" indexCtx
-  match "theauthor.html" $ do
+  match "me.html" $ do
     route idRoute
     compile $ do
       let meCtx = defaultContext <> constField "siteName" siteName <> constField "root" root
       getResourceBody
         >>= applyAsTemplate meCtx
         >>= loadAndApplyTemplate "templates/default.html" meCtx
-  match "hisworks.html" $ do
+  match "deeds.html" $ do
     route idRoute
     compile $ do
       let meCtx = defaultContext <> constField "siteName" siteName <> constField "root" root

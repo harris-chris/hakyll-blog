@@ -2,11 +2,27 @@
   font-family: 'RobotoMono-Regular';
   src: url('/fonts/RobotoMono-Regular.ttf')  format('truetype'); /* Safari, Android, iOS */
 }
-
-/*@font-face {*/
-  /*font-family: 'RobotoMono-Regular';*/
-  /*src: url('./fonts/RobotoMono-Regular.ttf')  format('truetype'); [> Safari, Android, iOS <]*/
-/*}*/
+@font-face {
+  font-family: 'iAWriterDuospace';
+  src: url('/fonts/iAWriterDuospace-Regular.otf')  format('opentype');
+  font-weight: normal;
+}
+@font-face {
+  font-family: 'iAWriterDuospace';
+  src: url('/fonts/iAWriterDuospace-Bold.otf')  format('opentype');
+  font-weight: bold;
+}
+@font-face {
+  font-family: 'iAWriterDuospace';
+  src: url('/fonts/iAWriterDuospace-RegularItalic.otf')  format('opentype');
+  font-style: italic;
+}
+@font-face {
+  font-family: 'iAWriterDuospace';
+  src: url('/fonts/iAWriterDuospace-BoldItalic.otf')  format('opentype');
+  font-weight: bold;
+  font-style: italic;
+}
 
 a:link {
   color: blue;
@@ -28,7 +44,7 @@ a:active {
 
 body {
   color: black;
-  font-family: 'RobotoMono-Regular';
+  font-family: 'iAWriterDuospace';
   font-size: 15px;
 }
 
@@ -50,20 +66,11 @@ body {
   background-color: lightgrey;
   justify-content: center;
   flex: 1;
+  border-top: 1px solid black;
   border-left: 1px solid black; 
   border-right: 1px solid black;
   border-bottom: 1px solid black;
   padding: 10px 7px 10px 7px;
-}
-
-.nav-column {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: lightgrey;
-  justify-content: center;
-  flex: 1;
-  border: 1px solid black;
 }
 
 .posts-short-list {
@@ -78,8 +85,8 @@ body {
 
 h1 {
   font-size: 15px;
-  font-weight: normal;
-  font-family: 'RobotoMono-Regular', helvetica;
+  font-weight: bold;
+  font-family: 'iAWriterDuospace';
   color: red;
   text-transform: uppercase;
 }
@@ -87,21 +94,24 @@ h1 {
 h2 {
   font-size: 15px;
   font-weight: normal;
-  font-family: 'RobotoMono-Regular', helvetica;
+  font-family: 'iAWriterDuospace';
 }
 
 #navbar {
   display: flex;
+  background-color: lightblue;
+  padding: 0 0 0 0;
 }
 
 #navbar ul {
-  list-style: none;
   padding-right: 20px;
-  color: blue;
+  border-left: 1px solid black; 
+  border-right: 1px solid black;
+  border-bottom: 1px solid black;
 }
 
 #navbar li {
-  margin: 10px 10px 10px 10px;
+  margin: 0px 10px 0px 10px;
   text-decoration: underline;
   white-space: nowrap;
   display: inline;
