@@ -63,8 +63,6 @@ body {
 .column {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
   flex: 1;
   padding: 10px 7px 10px 7px;
 }
@@ -77,27 +75,26 @@ body {
 .posts-short-list li {
   margin: 0;
   padding: 0;
+  display: inline;
 }
 
 h1 {
   font-size: 15px;
   font-weight: bold;
   font-family: 'iAWriterDuospace';
-  color: red;
   text-transform: uppercase;
 }
 
 h2 {
   font-size: 15px;
-  font-weight: normal;
+  font-weight: bold;
+  font-style: italic;
   font-family: 'iAWriterDuospace';
 }
 
 #navbar {
   display: flex;
   background-color: darkolivegreen;
-  /*margin-top: -20px;*/
-  /*margin-bottom: -20px;*/
 }
 
 #navbar ul {
@@ -108,6 +105,10 @@ h2 {
   margin: 0px 20px 0px 10px;
   white-space: nowrap;
   display: inline;
+}
+
+#navbar a {
+  color: black;
 }
 
 #navbar-active-item {
