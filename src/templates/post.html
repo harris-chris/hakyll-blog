@@ -1,11 +1,12 @@
-<main>
+<link rel="stylesheet" href="./css/layout.css">
+<div class='page-wrapper'>
   $partial("templates/nav.html")$
   <article>
     <header>
-      <h1>
-        <a href=".$url$">$title$</a>
-      </h1>
-      <div>
+      <div type='row'>
+        <h1>
+          <a href=".$url$">$title$</a>
+        </h1>
         <small>$date$</small>
         $if(updated)$
         <small>(updated: $updated$)</small>
@@ -13,7 +14,9 @@
       </div>
     </header>
     <section>
-      $body$
+      <div class='row'>
+        $body$
+      </div>
     </section>
   </article>
 </main>
