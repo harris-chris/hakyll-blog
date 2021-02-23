@@ -104,10 +104,15 @@ main = hakyllWith config $ do
   match "deeds.html" $ do
     route idRoute
     compile $ do
-      let meCtx = defaultContext <> constField "siteName" siteName <> constField "root" root
+      projects <- recentFirst =<< loadAll "projects/*"
+      let indexCtx =
+            listField "projects" postCtx (return projects)
+              <> constField "root" root
+              <> constField "siteName" siteName
+              <> defaultContext
       getResourceBody
-        >>= applyAsTemplate meCtx
-        >>= loadAndApplyTemplate "templates/default.html" meCtx
+        >>= applyAsTemplate indexCtx
+        >>= loadAndApplyTemplate "templates/default.html" indexCtx
   match "templates/*" $
     compile templateBodyCompiler
   create ["sitemap.xml"] $ do
@@ -140,6 +145,13 @@ feedCtx =
 
 postCtx :: Context String
 postCtx =
+  constField "root" root
+    <> constField "siteName" siteName
+    <> dateField "date" "%Y-%m-%d"
+    <> defaultContext
+
+projectCtx :: Context String
+projectCtx =
   constField "root" root
     <> constField "siteName" siteName
     <> dateField "date" "%Y-%m-%d"

@@ -1,20 +1,23 @@
 ---
-desc: "About the author"
+desc: "Deeds"
 lang: "en"
-stylesheet: "default"
-title: "About the author"
+stylesheet: "layout"
+title: "Deeds"
 ---
 
 <header>
   $partial("templates/nav.html")$
-  <h1>His works</h1>
-  <link rel="stylesheet" href="./css/layout.css">
+  <h1>Deeds</h1>
 </header>
 <main>
   <section>
-    <h2>This chap, yes</h2>
-    <body>
-      Chris Harris 
-    </body>
+    <ul>
+      $for(projects)$
+        <li>
+          <div><a href=".$url$">$title$</a></div>
+          <small>$date$</small>
+        </li>
+      $endfor$
+    </ul>
   </section>
 </main>
