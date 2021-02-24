@@ -62,20 +62,28 @@ main = hakyllWith config $ do
   match "fonts/*" $ do
     route   idRoute
     compile copyFileCompiler
-  match "posts/*" $ do
-    let ctx = constField "type" "article" <> postCtx
+  match "content/thoughts/*" $ do
+    let ctx = constField "type" "article" <> thoughtCtx
     route $ metadataRoute titleRoute
     compile $
       pandocCompilerCustom
-        >>= loadAndApplyTemplate "templates/post.html" ctx
+        >>= loadAndApplyTemplate "templates/thought.html" ctx
+        >>= saveSnapshot "content"
+        >>= loadAndApplyTemplate "templates/default.html" ctx
+  match "content/deeds/*" $ do
+    let ctx = constField "type" "article" <> deedCtx
+    route $ metadataRoute titleRoute
+    compile $
+      pandocCompilerCustom
+        >>= loadAndApplyTemplate "templates/deed.html" ctx
         >>= saveSnapshot "content"
         >>= loadAndApplyTemplate "templates/default.html" ctx
   match "index.html" $ do
     route idRoute
     compile $ do
-      posts <- recentFirst =<< loadAll "posts/*"
+      thoughts <- recentFirst =<< loadAll "content/thoughts/*"
       let indexCtx =
-            listField "posts" postCtx (return posts)
+            listField "thoughts" thoughtCtx (return thoughts)
               <> constField "root" root
               <> constField "siteName" siteName
               <> defaultContext
@@ -85,9 +93,9 @@ main = hakyllWith config $ do
   match "thoughts.html" $ do
     route idRoute
     compile $ do
-      posts <- recentFirst =<< loadAll "posts/*"
+      thoughts <- recentFirst =<< loadAll "content/thoughts/*"
       let indexCtx =
-            listField "posts" postCtx (return posts)
+            listField "thoughts" thoughtCtx (return thoughts)
               <> constField "root" root
               <> constField "siteName" siteName
               <> defaultContext
@@ -104,9 +112,9 @@ main = hakyllWith config $ do
   match "deeds.html" $ do
     route idRoute
     compile $ do
-      projects <- recentFirst =<< loadAll "projects/*"
+      deeds <- recentFirst =<< loadAll "content/deeds/*"
       let indexCtx =
-            listField "projects" postCtx (return projects)
+            listField "deeds" deedCtx (return deeds)
               <> constField "root" root
               <> constField "siteName" siteName
               <> defaultContext
@@ -118,12 +126,12 @@ main = hakyllWith config $ do
   create ["sitemap.xml"] $ do
     route idRoute
     compile $ do
-      posts <- recentFirst =<< loadAll "posts/*"
-      let pages = posts
+      content <- recentFirst =<< loadAll "content/*"
+      let pages = content
           sitemapCtx =
             constField "root" root
               <> constField "siteName" siteName
-              <> listField "pages" postCtx (return pages)
+              <> listField "pages" thoughtCtx (return pages)
       makeItem ("" :: String)
         >>= loadAndApplyTemplate "templates/sitemap.xml" sitemapCtx
   create ["rss.xml"] $ do
@@ -140,18 +148,18 @@ main = hakyllWith config $ do
 feedCtx :: Context String
 feedCtx =
   titleCtx
-    <> postCtx
+    <> thoughtCtx
     <> bodyField "description"
 
-postCtx :: Context String
-postCtx =
+thoughtCtx :: Context String
+thoughtCtx =
   constField "root" root
     <> constField "siteName" siteName
     <> dateField "date" "%Y-%m-%d"
     <> defaultContext
 
-projectCtx :: Context String
-projectCtx =
+deedCtx :: Context String
+deedCtx =
   constField "root" root
     <> constField "siteName" siteName
     <> dateField "date" "%Y-%m-%d"
@@ -220,7 +228,7 @@ feedCompiler :: FeedRenderer -> Compiler (Item String)
 feedCompiler renderer =
   renderer feedConfiguration feedCtx
     =<< recentFirst
-    =<< loadAllSnapshots "posts/*" "content"
+    =<< loadAllSnapshots "content/*" "content"
 
 feedConfiguration :: FeedConfiguration
 feedConfiguration =
