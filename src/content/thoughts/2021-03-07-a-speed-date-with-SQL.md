@@ -4,7 +4,7 @@ desc: "A speed date with SQL"
 keywords: "SQL, data"
 lang: "en"
 stylesheet: "layout"
-title: "a speed date with SQL"
+title: "A speed date with SQL"
 updated: "2021-03-09"
 ---
 I recently did a five-month "data engineering" course provided by Udacity, which brought me into close orbit with SQL, a technology that I had obviously been aware of but not used to any great extent before. Since this post contains more criticism than praise, let me first say that I speak as somebody who has not yet had their ideas re-forged much in the smithy of practical reality. There are many things in life whose merits are not obvious at first glance. I am happy to be corrected or contradicted, and I'm sure at least part of what I have written below is wrong for reasons I do not yet understand. Here I'm speaking here purely about SQL as a language/concept, rather than at the earthier level of implementation.
